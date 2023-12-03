@@ -2,11 +2,12 @@
 #include<iostream>
 #include<string>
 #include<vector>
+#include<mysql.h>
 using namespace std;
 
 typedef struct Student
 {
-	string sid,name,sex,identy_id;
+	string sid,sname,sex,identy_id;
 	int age,grade,classes;
 }student;
 
@@ -111,7 +112,7 @@ bool StudentManagement::connectDatabase()
         cout<<"student表删除失败"<<endl;
     }
     
-    char* create_table_query="CREATE TABLE student( sid VARCHAR(20), name VARCHAR(5), age int, grade int, classes int, sex char(2),identy_id varchar(30))";
+    char* create_table_query="CREATE TABLE student( sid VARCHAR(20), sname VARCHAR(5), age int, grade int, classes int, sex char(2),identy_id varchar(30))";
  
     if (mysql_query(&mysql, create_table_query))
     {
@@ -127,16 +128,16 @@ bool StudentManagement::connectDatabase()
 
 inline void StudentManagement::createStudent()
 {
-	cin>>stu.sid>>stu.name>>stu.age>>stu.grade>>stu.classes>>stu.sex>>stu.identy_id;
+	cin>>stu.sid>>stu.sname>>stu.age>>stu.grade>>stu.classes>>stu.sex>>stu.identy_id;
 }
 
 inline bool StudentManagement::insert_student()
 {
 	char sql[1024];
-	cout<<"请输入你想要输插入的学生信息:学号,姓名,年龄,年级,班级,性别,身份证号码"<<endl;
+	cout<<"请输入你想要插入的学生信息:学号,姓名,年龄,年级,班级,性别,身份证号码"<<endl;
 	createStudent();
 	sprintf(sql,"insert into student values ('%s','%s',%d,%d,%d,'%s','%s')",
-	stu.sid.c_str(),stu.name.c_str(),stu.age,stu.grade,stu.classes,stu.sex.c_str(),stu.identy_id.c_str());
+	stu.sid.c_str(),stu.sname.c_str(),stu.age,stu.grade,stu.classes,stu.sex.c_str(),stu.identy_id.c_str());
     
 	if(mysql_query(&mysql,sql))
 	{
@@ -156,8 +157,8 @@ inline bool StudentManagement::update_student()
 	char sql[1024];
 	cout<<"请输入你想要修改的学生信息:学号,姓名,年龄,年级,班级,性别,身份证号码"<<endl;
 	createStudent();
-	sprintf(sql,"update student set name='%s',age=%d, grade=%d, classes=%d, sex='%s',identy_id='%s' where sid='%s'",
-	stu.name.c_str(),stu.age,stu.grade,stu.classes,stu.sex.c_str(),stu.identy_id.c_str(),stu.sid.c_str());
+	sprintf(sql,"update student set sname='%s',age=%d, grade=%d, classes=%d, sex='%s',identy_id='%s' where sid='%s'",
+	stu.sname.c_str(),stu.age,stu.grade,stu.classes,stu.sex.c_str(),stu.identy_id.c_str(),stu.sid.c_str());
     
 	if(mysql_query(&mysql,sql))
 	{

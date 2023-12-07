@@ -10,6 +10,7 @@
 #include"CourseSet.hpp"
 #include"PArecords.hpp"
 #include"CollegeMajor.hpp"
+#include"Stu_User.hpp"
 
 int main()
 {
@@ -77,4 +78,8 @@ int main()
 	// CollegeMajorOP::GetInstance()->update_collegeMajor(com2);
 	// CollegeMajorOP::GetInstance()->delete_collegeMajor("微电");
 	// CollegeMajorOP::GetInstance()->select_collegeMajors();
+
+	Stu_User user1("202200400053");
+	user1.showPersonalInfo();
+
 }

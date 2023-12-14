@@ -12,6 +12,7 @@ release/teacell_score.o
 release/teacell_stuinfo.o
 release/teacell_teainfo.o
 release/teacell_updateinfo.o
+release/teacell_updatestuinfo.o
 release/teacheruser.o
 release/moc_login.o
 release/moc_stucell_course.o
@@ -25,4 +26,5 @@ release/moc_teacell_score.o
 release/moc_teacell_stuinfo.o
 release/moc_teacell_teainfo.o
 release/moc_teacell_updateinfo.o
+release/moc_teacell_updatestuinfo.o
 release/moc_teacheruser.o

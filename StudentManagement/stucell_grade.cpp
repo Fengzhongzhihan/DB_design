@@ -45,6 +45,14 @@ void stucell_grade::on_showGrade_clicked()
 
 void stucell_grade::on_printGrade_clicked()
 {
+
+    //获取第一列表头名
+   QString firstName= m_model.headerData(0,Qt::Horizontal, Qt::DisplayRole).toString();
+   if(firstName!="课程号")
+   {
+       QMessageBox::warning(NULL,"错误","请显示出成绩界面再进行打印!");
+       return;
+   }
      QString fileName = QFileDialog::getSaveFileName(this, tr("Save as..."),
                                                      QString(), tr("EXCEL files (*.xls *.xlsx)"));
      if (fileName!="")

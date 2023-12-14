@@ -27,14 +27,13 @@ public:
     QLineEdit *courseName;
     QPushButton *findCourse;
     QPushButton *findMyCourse;
-    QPushButton *findMyStudent;
     QTableView *tableView;
 
     void setupUi(QDialog *teacel_course)
     {
         if (teacel_course->objectName().isEmpty())
             teacel_course->setObjectName(QString::fromUtf8("teacel_course"));
-        teacel_course->resize(383, 335);
+        teacel_course->resize(433, 335);
         gridLayout = new QGridLayout(teacel_course);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         courseName = new QLineEdit(teacel_course);
@@ -52,11 +51,6 @@ public:
 
         gridLayout->addWidget(findMyCourse, 0, 2, 1, 1);
 
-        findMyStudent = new QPushButton(teacel_course);
-        findMyStudent->setObjectName(QString::fromUtf8("findMyStudent"));
-
-        gridLayout->addWidget(findMyStudent, 0, 3, 1, 1);
-
         tableView = new QTableView(teacel_course);
         tableView->setObjectName(QString::fromUtf8("tableView"));
 
@@ -73,7 +67,6 @@ public:
         teacel_course->setWindowTitle(QCoreApplication::translate("teacel_course", "Dialog", nullptr));
         findCourse->setText(QCoreApplication::translate("teacel_course", "\346\237\245\350\257\242\350\257\276\347\250\213", nullptr));
         findMyCourse->setText(QCoreApplication::translate("teacel_course", "\346\237\245\347\234\213\344\270\252\344\272\272\346\225\231\345\255\246\350\257\276\347\250\213", nullptr));
-        findMyStudent->setText(QCoreApplication::translate("teacel_course", "\346\237\245\347\234\213\351\200\211\350\257\276\345\255\246\347\224\237\344\277\241\346\201\257", nullptr));
     } // retranslateUi
 
 };

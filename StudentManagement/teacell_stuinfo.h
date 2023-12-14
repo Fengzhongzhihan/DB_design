@@ -19,6 +19,15 @@ public:
     {
         tid=id;
     }
+private slots:
+    void on_findMyStudent_clicked();
+
+    void on_printStudent_clicked();
+
+    void on_showMyCourse_clicked();
+
+    void on_searchStudent_clicked();
+
 private:
     Ui::teacell_stuInfo *ui;
     QStandardItemModel m_model;

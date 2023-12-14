@@ -2,6 +2,7 @@
 #include "ui_teacell_teainfo.h"
 #include "sqlop.h"
 #include "teacell_updateinfo.h"
+
 teacell_teaInfo::teacell_teaInfo(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::teacell_teaInfo)

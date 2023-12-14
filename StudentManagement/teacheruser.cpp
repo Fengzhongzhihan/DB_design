@@ -62,6 +62,7 @@ void teacherUser::dealPage()
     }
     else
     {
+        stuInfo->initPage();
         ui->stackedWidget->setCurrentIndex(3);
     }
 }

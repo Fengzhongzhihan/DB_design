@@ -53,6 +53,10 @@ public:
       QVector<QStringList> selectMyStudents(QString strCondition="");
       //判断是否是我的课程
       bool isMyClass(QString tid, QString courseSet_id);
+      //设置分数
+      bool setScore(QString sid, QString courseSet_id, QString score);
+      //统计课程数据
+     QVector<QStringList>  countScore(QString courseSet_id);
 private:
     QSqlDatabase db;
 };

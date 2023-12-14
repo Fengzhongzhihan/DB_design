@@ -6,40 +6,47 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>606</width>
-    <height>556</height>
+    <width>758</width>
+    <height>734</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
-    <widget class="QLineEdit" name="lineEdit"/>
+   <item row="1" column="0" colspan="5">
+    <widget class="QTableView" name="tableView"/>
    </item>
-   <item row="0" column="1">
-    <widget class="QPushButton" name="pushButton_3">
+   <item row="0" column="0">
+    <widget class="QLineEdit" name="stuName"/>
+   </item>
+   <item row="0" column="4">
+    <widget class="QPushButton" name="printStudent">
      <property name="text">
-      <string>查询学生</string>
+      <string>打印选课学生信息</string>
      </property>
     </widget>
    </item>
    <item row="0" column="2">
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="showMyCourse">
      <property name="text">
       <string>查看个人教学课程</string>
      </property>
     </widget>
    </item>
+   <item row="0" column="1">
+    <widget class="QPushButton" name="searchStudent">
+     <property name="text">
+      <string>查询学生</string>
+     </property>
+    </widget>
+   </item>
    <item row="0" column="3">
-    <widget class="QPushButton" name="pushButton_2">
+    <widget class="QPushButton" name="findMyStudent">
      <property name="text">
       <string>查看选课学生信息</string>
      </property>
     </widget>
-   </item>
-   <item row="1" column="0" colspan="4">
-    <widget class="QTableView" name="tableView"/>
    </item>
   </layout>
  </widget>

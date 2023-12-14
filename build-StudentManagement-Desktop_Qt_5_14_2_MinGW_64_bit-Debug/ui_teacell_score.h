@@ -23,10 +23,12 @@ class Ui_teacell_score
 {
 public:
     QGridLayout *gridLayout;
-    QPushButton *pushButton;
-    QPushButton *pushButton_3;
-    QPushButton *pushButton_4;
+    QPushButton *countScore;
+    QPushButton *printScore;
     QTableView *tableView;
+    QPushButton *showScore;
+    QPushButton *myCourse;
+    QPushButton *updateScore;
 
     void setupUi(QDialog *teacell_score)
     {
@@ -35,25 +37,35 @@ public:
         teacell_score->resize(733, 638);
         gridLayout = new QGridLayout(teacell_score);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        pushButton = new QPushButton(teacell_score);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        countScore = new QPushButton(teacell_score);
+        countScore->setObjectName(QString::fromUtf8("countScore"));
 
-        gridLayout->addWidget(pushButton, 0, 0, 1, 1);
+        gridLayout->addWidget(countScore, 0, 3, 1, 1);
 
-        pushButton_3 = new QPushButton(teacell_score);
-        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
+        printScore = new QPushButton(teacell_score);
+        printScore->setObjectName(QString::fromUtf8("printScore"));
 
-        gridLayout->addWidget(pushButton_3, 0, 1, 1, 1);
-
-        pushButton_4 = new QPushButton(teacell_score);
-        pushButton_4->setObjectName(QString::fromUtf8("pushButton_4"));
-
-        gridLayout->addWidget(pushButton_4, 0, 2, 1, 1);
+        gridLayout->addWidget(printScore, 0, 4, 1, 1);
 
         tableView = new QTableView(teacell_score);
         tableView->setObjectName(QString::fromUtf8("tableView"));
 
-        gridLayout->addWidget(tableView, 1, 0, 1, 3);
+        gridLayout->addWidget(tableView, 1, 0, 1, 5);
+
+        showScore = new QPushButton(teacell_score);
+        showScore->setObjectName(QString::fromUtf8("showScore"));
+
+        gridLayout->addWidget(showScore, 0, 1, 1, 1);
+
+        myCourse = new QPushButton(teacell_score);
+        myCourse->setObjectName(QString::fromUtf8("myCourse"));
+
+        gridLayout->addWidget(myCourse, 0, 0, 1, 1);
+
+        updateScore = new QPushButton(teacell_score);
+        updateScore->setObjectName(QString::fromUtf8("updateScore"));
+
+        gridLayout->addWidget(updateScore, 0, 2, 1, 1);
 
 
         retranslateUi(teacell_score);
@@ -64,9 +76,11 @@ public:
     void retranslateUi(QDialog *teacell_score)
     {
         teacell_score->setWindowTitle(QCoreApplication::translate("teacell_score", "Dialog", nullptr));
-        pushButton->setText(QCoreApplication::translate("teacell_score", "\346\237\245\347\234\213\344\270\252\344\272\272\346\225\231\345\255\246\350\257\276\347\250\213", nullptr));
-        pushButton_3->setText(QCoreApplication::translate("teacell_score", "\344\277\256\346\224\271\345\255\246\347\224\237\346\210\220\347\273\251", nullptr));
-        pushButton_4->setText(QCoreApplication::translate("teacell_score", "\347\273\237\350\256\241\346\210\220\347\273\251", nullptr));
+        countScore->setText(QCoreApplication::translate("teacell_score", "\347\273\237\350\256\241\345\255\246\347\224\237\346\210\220\347\273\251", nullptr));
+        printScore->setText(QCoreApplication::translate("teacell_score", "\346\211\223\345\215\260\345\255\246\347\224\237\346\210\220\347\273\251", nullptr));
+        showScore->setText(QCoreApplication::translate("teacell_score", "\346\230\276\347\244\272\345\255\246\347\224\237\346\210\220\347\273\251", nullptr));
+        myCourse->setText(QCoreApplication::translate("teacell_score", "\346\237\245\347\234\213\344\270\252\344\272\272\346\225\231\345\255\246\350\257\276\347\250\213", nullptr));
+        updateScore->setText(QCoreApplication::translate("teacell_score", "\344\277\256\346\224\271\345\255\246\347\224\237\346\210\220\347\273\251", nullptr));
     } // retranslateUi
 
 };

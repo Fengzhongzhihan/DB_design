@@ -26,8 +26,6 @@ private slots:
 
     void on_findMyCourse_clicked();
 
-    void on_findMyStudent_clicked();
-
 private:
     Ui::teacel_course *ui;
     QStandardItemModel m_model;

@@ -386,5 +386,58 @@ bool sqlOP::isMyClass(QString tid, QString courseSet_id)
     }
 }
 
+bool sqlOP::setScore(QString sid, QString courseSet_id, QString score)
+{
+    QSqlQuery q(db);
+    QString strSql =
+            QString("update takes  set score =%1 where student_id='%2' and courseSet_id='%3'").arg(score).arg(sid).arg(courseSet_id);
+    bool ret = q.exec(strSql);
+    if(!ret)
+    {
+       qDebug()<< q.lastError().text();
+       return false;
+    }
+    else
+    {
+      return true;
+    }
+
+}
+
+QVector<QStringList> sqlOP::countScore(QString courseSet_id)
+{
+    QSqlQuery q(db);
+    QString strSql =
+            QString("select avg_score, max_score, min_score ,count_ok,count_sum, (count_ok/count_sum)as passRate from (select avg(score) as avg_score,"
+                    " max(score) as max_score, min(score) as min_score, count(*) as count_sum from takes where courseSet_id='%1' and score>0 )"
+                    " as a natural join (select count(*) as count_ok from takes where score>=60)as b ").arg(courseSet_id);
+    bool ret = q.exec(strSql);
+    QVector<QStringList> vec;
+
+    QStringList l;
+
+    if(!ret)
+    {
+       qDebug()<< q.lastError().text();
+    }
+    else
+    {
+        //一共多少列
+        int iCols = q.record().count();
+        //每次都读取一行数据
+        QStringList l;
+        while(q.next())
+        {
+            l.clear();
+            for(int i =0;i<iCols;i++)
+            {
+                l<<q.value(i).toString();
+            }
+            vec.push_back(l);
+        }
+    }
+    return vec;
+}
+
 
 

@@ -30,6 +30,7 @@ SOURCES += \
     teacell_stuinfo.cpp \
     teacell_teainfo.cpp \
     teacell_updateinfo.cpp \
+    teacell_updatestuinfo.cpp \
     teacheruser.cpp
 
 HEADERS += \
@@ -46,6 +47,7 @@ HEADERS += \
     teacell_stuinfo.h \
     teacell_teainfo.h \
     teacell_updateinfo.h \
+    teacell_updatestuinfo.h \
     teacheruser.h
 
 FORMS += \
@@ -61,6 +63,7 @@ FORMS += \
     teacell_stuinfo.ui \
     teacell_teainfo.ui \
     teacell_updateinfo.ui \
+    teacell_updatestuinfo.ui \
     teacheruser.ui
 
 QT += sql

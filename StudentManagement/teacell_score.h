@@ -19,6 +19,17 @@ public:
     {
         tid=id;
     }
+private slots:
+    void on_myCourse_clicked();
+
+    void on_showScore_clicked();
+
+    void on_updateScore_clicked();
+
+    void on_countScore_clicked();
+
+    void on_printScore_clicked();
+
 private:
     Ui::teacell_score *ui;
     QStandardItemModel m_model;

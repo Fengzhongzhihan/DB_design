@@ -48,39 +48,3 @@ void teacel_course::on_findMyCourse_clicked()
     initPage(strCondition);
 }
 
-
-void teacel_course::on_findMyStudent_clicked()
-{
-    int r = ui->tableView->currentIndex().row();
-    if(r<0)
-    {
-        QMessageBox::warning(this,"错误","请选择你想要查的课程");
-    }
-    else
-    {
-        //课程号
-        QString id=m_model.item(r,0)->text();
-        if(sqlOP::getInstance()->isMyClass(tid,id))
-        {
-            QString strCondition =QString ("where courseSet_id='%1'").arg(id);
-            auto l=sqlOP::getInstance()->selectMyStudents(strCondition);
-            m_model.clear();
-            m_model.setHorizontalHeaderLabels(QStringList{"学号","姓名","年龄","年级","班级","身份证号","性别","学院","专业"});
-            ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-            for(int i = 0;i<l.size();i++)
-            {
-                QList<QStandardItem*> items;
-                for(int j = 0;j<l[i].size();j++)
-                {
-                    items.append(new QStandardItem(l[i][j]));
-                }
-
-                m_model.appendRow(items);
-            }
-        }
-        else
-        {
-            QMessageBox::warning(this,"错误","你不能查别的老师的学生哦!");
-        }
-    }
-}

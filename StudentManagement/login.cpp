@@ -1,6 +1,7 @@
 #include "login.h"
 #include "ui_login.h"
 #include "teacheruser.h"
+#include"administratoruser.h"
 
 login::login(QWidget *parent)
     : QMainWindow(parent)
@@ -9,9 +10,20 @@ login::login(QWidget *parent)
     ui->setupUi(this);
 }
 
+
+
 login::~login()
 {
     delete ui;
+}
+
+void login::paintEvent(QPaintEvent *event)
+{
+    QPalette PAllbackground = this->palette();
+    QImage ImgAllbackground(":/new/prefix1/C:/Users/Lenovo/Desktop/DaMingPool.jpg");
+    QImage fitimgpic=ImgAllbackground.scaled(this->width(),this->height(), Qt::IgnoreAspectRatio);
+    PAllbackground.setBrush(QPalette::Window, QBrush(fitimgpic));
+    this->setPalette(PAllbackground);
 }
 
 
@@ -31,7 +43,7 @@ void login::on_loginButton_clicked()
         }
     //连接成功,判断账号密码是否在数据库当中
 
-        QString sqlstr = "select* from user_list;"; // 使用 MYSQL 查询语句获取表的数据，写入 tableWidget 中。
+        QString sqlstr = "select* from account;"; // 使用 MYSQL 查询语句获取表的数据，写入 tableWidget 中。
         QSqlQuery query;
         query.prepare(sqlstr); // 准备查询语句。
         if (query.exec())
@@ -56,20 +68,22 @@ void login::on_loginButton_clicked()
                     }
                     if(query.value(2)==2)
                     {
-                         teacherUser *teacher= new teacherUser();
-                         teacher->setTid(id);
+                        teacherUser *teacher= new teacherUser();
+                        teacher->setTid(id);
                         teacher->initPage();
                         hide();
                         teacher->exec();
                         return;
                     }
-//                    if(query.value(2)==3)
-//                    {
-//                        Administrator adm;
-//                        hide();
-//                        adm.exec();
-//                        return;
-//                    }
+                    if(query.value(2)==3)
+                    {
+                        administratorUser*administrator = new administratorUser();
+                        administrator->setAdministratorId(id);
+                        administrator->initPage();
+                        hide();
+                        administrator->exec();
+                        return;
+                    }
 
                     flag=true;
                     break;

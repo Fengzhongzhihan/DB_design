@@ -224,6 +224,15 @@ void teacell_stuInfo::on_showMyCourse_clicked()
 void teacell_stuInfo::on_searchStudent_clicked()
 {
     QString str=ui->stuName->text();
-    QString strCondition=QString("where student_name REGEXP '%1'").arg(str);
+    QString strCondition;
+    if(str == "")
+    {
+        strCondition = "";
+    }
+    else
+    {
+        strCondition = QString("where student_name REGEXP '%1'").arg(str);
+
+    }
     initPage(strCondition);
 }

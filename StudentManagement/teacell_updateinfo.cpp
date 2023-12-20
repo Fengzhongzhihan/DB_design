@@ -18,7 +18,7 @@ void teacell_updateInfo::on_commitButton_clicked()
 {
     QStringList info;
     info.append(ui->name->text());
-    info.append(ui->college->currentText());
+    info.append(ui->college->text());
     info.append(tid);
     sqlOP::getInstance()->updateTeacherInfos(info);
     hide();

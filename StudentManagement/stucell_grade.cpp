@@ -192,8 +192,9 @@ void stucell_grade::on_reExam_clicked()
         else
         {
             QMessageBox::warning(NULL,"错误","你的成绩不满足补考要求!");
-            on_showGrade_clicked();
         }
+
+        on_showGrade_clicked();
     }
 }
 

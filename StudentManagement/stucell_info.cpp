@@ -44,7 +44,6 @@ void stucell_info::on_SelectInfo_clicked()
     //显示个人信息
     QString strCondition= QString( "where student_id ='%1'").arg(sid);
     initPage(strCondition);
-
 }
 
 void stucell_info::on_UpdateInfo_clicked()
@@ -53,6 +52,6 @@ void stucell_info::on_UpdateInfo_clicked()
    stuUpdateInfo->setSid(sid);
 
    stuUpdateInfo->exec();
-   on_SelectInfo_clicked();
    delete  stuUpdateInfo;
+   on_SelectInfo_clicked();
 }

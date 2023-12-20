@@ -12,6 +12,7 @@
 #include <QTableWidget>
 #include <QMainWindow>
 #include <studentuser.h>
+#include <QPainter>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class login; }
@@ -24,6 +25,7 @@ class login : public QMainWindow
 public:
     login(QWidget *parent = nullptr);
     ~login();
+    void paintEvent(QPaintEvent* event);
 
 private slots:
     void on_loginButton_clicked();

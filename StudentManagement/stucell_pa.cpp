@@ -20,10 +20,10 @@ stucell_pa::~stucell_pa()
 
 void stucell_pa::on_showPA_clicked()
 {
-    QString strCondition=QString ("where student_id ='%1'").arg(sid);
+    QString strCondition=QString ("where s.student_id ='%1'").arg(sid);
     auto l=sqlOP::getInstance()->getPArecords(strCondition);
     m_model.clear();
-    m_model.setHorizontalHeaderLabels(QStringList{"学号","奖项/乘法","时间"});
+    m_model.setHorizontalHeaderLabels(QStringList{"学号","姓名","奖项/惩罚","时间"});
     ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
     for(int i = 0;i<l.size();i++)

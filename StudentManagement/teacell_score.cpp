@@ -103,10 +103,12 @@ void teacell_score::on_updateScore_clicked()
             updateStu->setCourseSet(id);
             updateStu->exec();
          delete  updateStu;
+
+            on_myCourse_clicked();
         }
         else
         {
-            QMessageBox::warning(this,"错误","请选择你想要修改的学生!");
+            QMessageBox::warning(this,"错误","请选择你想要修改成绩的学生!");
         }
     }
 }

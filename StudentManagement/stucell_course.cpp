@@ -39,7 +39,15 @@ void stucell_course::initPage(QString strCondition)
 void stucell_course::on_showCourse_clicked()
 {
     QString str=ui->findCourse->text();
-    QString strCondition=QString("where course_name REGEXP '%1'").arg(str);
+    QString strCondition;
+    if(str=="")
+    {
+        strCondition = "";
+    }
+    else
+    {
+        strCondition = QString("where course_id = '%1' or course_name REGEXP '%1'").arg(str);
+    }
     initPage(strCondition);
 }
 
@@ -82,7 +90,7 @@ void stucell_course::on_myCourse_clicked()
     QString strCondition=QString ("where student_id ='%1'").arg(sid);
     auto l=sqlOP::getInstance()->showSelectedCourse(strCondition);
     m_model.clear();
-    m_model.setHorizontalHeaderLabels(QStringList{"课程号","开设学院","课程名","学分","类型","教师","上课地点","上课校区","开始周","结束周","星期几","第几大节"});
+    m_model.setHorizontalHeaderLabels(QStringList{"课程号","开设学院","课程名","学分","类型","教师","上课地点","上课校区","开始周","结束周","星期几","节次"});
     ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     for(int i = 0;i<l.size();i++)
     {

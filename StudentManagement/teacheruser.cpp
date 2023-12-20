@@ -20,7 +20,7 @@ void teacherUser::initPage()
     teaInfo->setTid(tid);
     teaScore=new teacell_score(this);
     teaScore->setTid(tid);
-    teaCourse=new teacel_course(this);
+    teaCourse=new teacell_course(this);
     teaCourse->setTid(tid);
     stuInfo=new teacell_stuInfo(this);
     stuInfo->setTid(tid);

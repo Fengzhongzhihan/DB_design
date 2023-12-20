@@ -20,10 +20,10 @@ void stucell_updateInfo::on_commitButton_clicked()
     info.append(ui->name->text());
     info.append(ui->age->text());
     info.append(ui->grade->text());
-    info.append(ui->mclass->currentText());
+    info.append(ui->m_class->text());
     info.append(ui->identity_id->text());
     info.append(ui->sex->currentText());
-    info.append(ui->major->currentText());
+    info.append(ui->major->text());
     info.append(sid);
     sqlOP::getInstance()->updateStudentInfos(info);
     hide();

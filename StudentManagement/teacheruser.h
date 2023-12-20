@@ -2,7 +2,7 @@
 #define TEACHERUSER_H
 
 #include <QDialog>
-#include"teacel_course.h"
+#include"teacell_course.h"
 #include"teacell_score.h"
 #include "teacell_stuinfo.h"
 #include "teacell_teainfo.h"
@@ -31,7 +31,7 @@ private:
     QStandardItemModel m_model;
     QString tid;
 
-    teacel_course * teaCourse;
+    teacell_course * teaCourse;
     teacell_score * teaScore;
     teacell_stuInfo * stuInfo;
     teacell_teaInfo * teaInfo;
